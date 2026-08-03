@@ -9,7 +9,9 @@ lifecycle, including safety-checked teardown. Outboard depends on `git` and
 nothing else.
 
 ```sh
-eval "$(outboard init zsh)"   # once, in .zshrc — enables the cd behavior
+./install.sh                  # builds a release binary, installs it to
+                              # ~/.local/bin, wires `eval "$(outboard init
+                              # zsh)"` into .zshrc — then reload the terminal
 
 outboard create               # new workspace "oslo", shell now inside it
 outboard rename oslo fix-auth # branch renamed; workspace name is permanent
