@@ -21,5 +21,5 @@ outboard destroy oslo         # worktree + branch + record, safety-checked
 - Domain vocabulary: [CONTEXT.md](./CONTEXT.md)
 - Decisions: [docs/adr/](./docs/adr/)
 
-Status: v0 in progress — CLI surface and design settled; `create`, `cd`,
-`ls`, `rename`, and `destroy` are stubs pending implementation.
+Status: v0 implemented — all verbs working, covered by an end-to-end test
+suite (`cargo test`).

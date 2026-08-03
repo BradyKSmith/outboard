@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 
 use crate::paths;
+use crate::prompt::RenamePromptState;
 
 /// One workspace record, stored as `registry/<name>.json`. Holds only what
 /// git cannot know; git remains the source of truth for code state.
@@ -17,8 +18,11 @@ pub struct WorkspaceRecord {
     pub branch: String,
     /// Whether the name was generated (drives the rename prompt).
     pub generated_name: bool,
-    /// RFC 3339 creation timestamp.
-    pub created_at: String,
+    /// Unix epoch seconds at creation.
+    pub created_at: u64,
+    /// Present while a rename prompt is active in the worktree.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub rename_prompt: Option<RenamePromptState>,
 }
 
 pub fn load(name: &str) -> anyhow::Result<Option<WorkspaceRecord>> {

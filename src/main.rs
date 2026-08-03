@@ -6,6 +6,7 @@ mod config;
 mod git;
 mod names;
 mod paths;
+mod prompt;
 mod registry;
 mod shell;
 
